@@ -15,12 +15,12 @@
     </nav>
   </aside>
   <div class="main">
-    <header class="header"><h2>What is Lorem Ipsum?</h2></header>
+   <div><header class="header"><h2>What is Lorem Ipsum?</h2></header></div>
     <div class="container">
       <div class="messages">        
         <ul class="inbox">
           <li  >
-            <div class="preview">
+            <div class="preview active">
               <h3>Lorem Ipsum</h3>
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
             </div>
@@ -66,14 +66,18 @@
       
       <section class="message active" id="mes1">
         <h2>What is Lorem Ipsum?</h2>
+        <div class="border"></div>
         <div class="body">
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 
           <img src="http://via.placeholder.com/350x150"></img>
+          <div class="img-sub"><small>blablablablabla blablablabla</small></div>
 
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
         </div>        
-           
+        <div class="comment">
+        <textarea placeholder="Type a Message..."></textarea>
+      </div>
       </section>
        
     </div>
@@ -158,6 +162,8 @@ a {
 .main .header {
   background: #eff0ef;
   max-height: 80px;
+    box-shadow: 0 2px 0 0 #888;
+    border-bottom: 1px solid #DDD;
 }
 
 .main .header h2{
@@ -165,6 +171,7 @@ a {
   padding: 20px 30px;
   margin:0;
   font-weight: 100;
+
 }
 .main .header ul {
   list-style: none;
@@ -178,6 +185,7 @@ a {
   background: #fff;
   border-right: 1px solid #DDD;
 }
+
 .messages h1 {
   margin: 0;
   padding: 20px;
@@ -191,15 +199,16 @@ a {
   list-style: none;
   border-bottom: 1px solid #ddd;
   height: calc(100vh - 80px);
+  overflow:scroll;
+  overflow-x: hidden;
 }
 .messages .inbox li {
   background: #F8F6F4;
   transition: background-color .2s ease;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 10px 20px;
   display: flex;
   cursor: pointer;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 .messages .inbox li .preview {
   /*flex: 1;*/
@@ -238,6 +247,9 @@ a {
   background: #fff;
   display: none;
 }
+.message .{
+
+}
 .message.active {
   display: block;
 }
@@ -246,8 +258,48 @@ a {
   padding: 20px 30px;
   font-weight: 400;
 }
-.message .body {
-  border-top: #e7e7e7 1px solid;
-  padding: 20px 30px;
+.inbox .active::before{
+  content: " ";
+  display: block;
+  border: 10px solid transparent;
+  border-right: 10px solid #fff;
+  position: absolute;
+  top: 140px;
+  left:610px;
 }
+.message .body {
+  padding: 20px 30px;
+  min-height: 700px;
+}
+.message .border{
+  border-bottom:1px solid #efefef;
+  margin-left: 30px;
+  margin-right: 10%;
+}
+
+.message img{
+  display: block;
+  margin: auto;
+}
+.message .img-sub{
+  text-align: center;
+}
+.message  textarea {
+      background: #fff;
+      padding: 10px;
+      border: 1px solid #ddd;
+      position: relative;
+      margin: 20px 5%;
+      width: 90%;
+      resize: none;
+      font-size:18px;
+      height:44px;
+    }
+.message ::-webkit-input-placeholder{
+  color: #cccccc;
+  /*font-size: 1.5em;*/
+}
+.message .comment{
+      border-top:1px solid #efefef;
+    }
 </style>
